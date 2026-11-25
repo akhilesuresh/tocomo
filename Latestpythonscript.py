@@ -3,21 +3,21 @@ import os
 from docx import Document
 from openai import OpenAI
 import sys
+from dotenv import load_dotenv
 import time
+import pypandoc
 
-# QBurst LLM Gateway API Key
-# IMPORTANT: Replace 'your-qburst-api-key-here' with your actual QBurst LLM gateway API key.
-# WARNING: Hardcoding your API key is insecure. Do not share this script or store it in version control (e.g., Git).
-API_KEY = "79c03ca6297bcab2b21cb918010df67bb654fe7232a0f58c"
+load_dotenv(dotenv_path="APIkey.env")
+API_KEY = os.getenv("API_KEY")
 
 # Paths
-SHELL_SCRIPT_PATH = "/home/astin/Desktop/Projects/Performance metrics/perfffmetriclsshellscript.sh"
-DEFAULT_OUTPUT_PATHS_FILE = "/home/astin/Desktop/Projects/Performance metrics/newfile/output_path.txt"
-ANALYSIS_DIR = "/home/astin/Desktop/Projects/Performance metrics/Analysis_Reports"
+SHELL_SCRIPT_PATH = "C:\\Users\Akhil\PycharmProjects\\tocomo\may29shell.sh"
+DEFAULT_OUTPUT_PATHS_FILE = "C:\\Users\Akhil\PycharmProjects\\tocomo\\newfile\output_path.txt"
+ANALYSIS_DIR = "C:\\Users\Akhil\PycharmProjects\\tocomo\Analysis_Reports"
 DOCX_OUTPUT_PATH = os.path.join(ANALYSIS_DIR, "final_report.docx")
 
-# Initialize Open AI client with QBurst LLM gateway
 try:
+#print("The API key is ", API_KEY)
     client = OpenAI(
         api_key=API_KEY,
         base_url="https://llmgateway.qburst.build/v1"
@@ -37,7 +37,7 @@ def run_shell_script():
         # Wait for output_paths.txt to appear
         global OUTPUT_PATHS_FILE
         OUTPUT_PATHS_FILE = DEFAULT_OUTPUT_PATHS_FILE
-        timeout = 120  # 2 minutes timeout
+        timeout = 60 # 2 minutes timeout
         check_interval = 5  # Check every 5 seconds
         elapsed = 0
         
@@ -103,36 +103,116 @@ def read_output_files():
 def call_gpt4o(data):
     """Send data to QBurst LLM gateway (Mistral provider, gpt-4o model) with a prompt and get response."""
     prompt = f"""
-    Analyze the following Android performance metrics data for an app, captured from gfxinfo, meminfo, cpuinfo, diskstats, and batterystats across multiple screens/transactions. The data is organized by screen, with each section labeled 'Metrics for screen <screen_name>'.
+Analyze the following Android performance metrics data for an app, captured from `gfxinfo`, `meminfo`, `cpuinfo`, `diskstats`, and `batterystats` across multiple screens/transactions. The data is organized by screen, with each section labeled 'Metrics for screen <screen_name>'.
 
-    {data}
-Read the given text file in data and analyse the results of the adb commands and generate a report with the following contents:
-Title: <Package> Performance Report
-Introduction: <Give a formal introduction to the document>
-Assumptions: <point out that network conditions and other test environment factors that may affect the result>
-3. App Info <create a table with bold boundaries>
-Timestamp: <Fetch from the top of the document>
-Device ID: f(x)
-Package: f(x)
-Screen: f(x)
-PID: f(x)
-Rendering Pipeline: f(x)
-Function f(x) = <Fetch from the document>
-Function table(Metric[], name, additional parameter) = <create a table with 3 columns namely Metric, Value and Status. table name = name. populate the Metric column with values in Metric[]. For Value  column Metric[i] = f(x). For Status column - PASS or FAIL as against the (if provided(Parameters) else(normal industry standard)). table boundaries = bold. font = sans serif. >
-table([Total frames rendered, Janky frames, Janky frames (legacy), 50th percentile frame time, 90th percentile frame time, 95th percentile frame time, 99th percentile frame time, Frame deadline missed, Frame deadline missed (legacy)], Frame Rendering Metrics)
-table([ Missed Vsync, High input latency, Slow UI thread, Slow bitmap uploads, Slow issue draw commands], UI Performance Bottleneck)
+{data}
 
-table([ 50th percentile GPU frame time, 90th percentile GPU frame time, 95th percentile GPU frame time, 99th percentile GPU frame time], GPU Metrics)
+Read the given performance text and analyze the results of the adb commands. Generate a structured **markdown-formatted report** for use in a DOCX export.
+**Important Formatting Instruction:** All markdown tables must have a consistent structure, with each column width sized to fit the largest text (including headers) so that the table does not exceed standard A4 DOCX page margins. Avoid unnecessary text wrapping or overly long column names that could cause overflow.
 
-table([Glyph Cache Glyph Count Total CPU MemoryMemory Usage], CPU Memory Usage, Display RSS and PSS for each)
+---
 
-table([Java Heap, Native Heap, Code, Stack, Graphics, Private, System],Memory Usage, add more columns to accommodate all data)
-table([Texture (Image), RenderTarget, Stencil, Other (Total)], GPU Memory Usage)
-Test Results: <Write the test results>
-    """
+# <Package> Performance Report
+
+## 1. Introduction
+
+Provide a formal introduction to the document, describing its purpose and scope.
+
+## 2. Assumptions
+
+Mention that environmental factors such as network latency, hardware performance, background processes, and OS-level activity may influence metrics observed during this test.
+
+## 3. App Info
+
+Extract and display the following app-level metadata in a markdown table:
+
+|**Field**|**Value**|
+|---------|---------|
+|Timestamp|f(x)     |
+|Device ID|f(x)     |
+|Package  |f(x)     |
+|Screen   |f(x)     |
+---
+
+## 4. Metrics Tables
+
+Include the following metric groups, using **standard markdown tables**. The **Status** column should show `PASS` or `FAIL` based on known thresholds or general best practices.
+
+### 4.1 Frame Rendering Metrics
+
+|**Metric**                    |**Value**|**Status**|
+|------------------------------|---------|----------|
+|Total frames rendered         | f(x)    |PASS/FAIL |
+|Janky frames                  | f(x)    |PASS/FAIL |
+|Janky frames (legacy)         | f(x)    |PASS/FAIL |
+|50th percentile frame time    | f(x)    |PASS/FAIL |
+|90th percentile frame time    | f(x)    |PASS/FAIL |
+|95th percentile frame time    | f(x)    |PASS/FAIL |
+|99th percentile frame time    | f(x)    |PASS/FAIL |
+|Frame deadline missed         | f(x)    |PASS/FAIL |
+|Frame deadline missed (legacy)| f(x)    |PASS/FAIL |
+
+### 4.2 UI Performance Bottlenecks
+
+|**Metric**             | **Value**|**Status**|
+|-----------------------|----------|----------|
+|Missed Vsync           | f(x)     |PASS/FAIL |
+|High input latency     | f(x)     |PASS/FAIL |
+|Slow UI thread         | f(x)     |PASS/FAIL |
+|Slow bitmap uploads    | f(x)     |PASS/FAIL |
+|Slow issue draw commands | f(x)   |PASS/FAIL |
+
+### 4.3 GPU Metrics
+
+|**Metric**                    |**Value**|**Status**|
+|------------------------------|---------|----------|
+|50th percentile GPU frame time|f(x)     |PASS/FAIL |
+|90th percentile GPU frame time|f(x)     |PASS/FAIL |
+|95th percentile GPU frame time|f(x)     |PASS/FAIL |
+|99th percentile GPU frame time|f(x)     |PASS/FAIL |
+
+### 4.4 CPU Memory Usage
+
+| **Metric**                       | **Value** | **Status** |
+|----------------------------------|-----------|------------|
+| Glyph Cache Glyph Count Total CPU| f(x)      | PASS/FAIL  |
+| MemoryMemory Usage (RSS)         | f(x)      | PASS/FAIL  |
+| MemoryMemory Usage (PSS)         | f(x)      | PASS/FAIL  |
+
+### 4.5 Memory Usage
+
+| **Metric**     | **Value (PSS)**  | **Value (RSS)**  | **Status** |
+|----------------|------------------|------------------|------------|
+| Java Heap      | f(x)             | f(x)             | PASS/FAIL  |
+| Native Heap    | f(x)             | f(x)             | PASS/FAIL  |
+| Code           | f(x)             | f(x)             | PASS/FAIL  |
+| Stack          | f(x)             | f(x)             | PASS/FAIL  |
+| Graphics       | f(x)             | f(x)             | PASS/FAIL  |
+| Private        | f(x)             | f(x)             | PASS/FAIL  |
+| System         | f(x)             | f(x)             | PASS/FAIL  |
+
+### 4.6 GPU Memory Usage
+
+| **Metric**     | **Value** | **Status** |
+|----------------|-----------|------------|
+| Texture (Image)| f(x)      | PASS/FAIL  |
+| RenderTarget   | f(x)      | PASS/FAIL  |
+| Stencil        | f(x)      | PASS/FAIL  |
+| Other (Total)  | f(x)      | PASS/FAIL  |
+
+---
+
+## 5. Test Results
+
+Summarize how the app performed across different screens and transactions. Highlight:
+
+- Which metrics failed to meet optimal thresholds
+- Which screens were most impacted
+- Recommendations for improvement based on findings
+---    """
     try:
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are an expert Android performance analyst."},
                 {"role": "user", "content": prompt}
@@ -144,20 +224,22 @@ Test Results: <Write the test results>
         print(f"Error calling QBurst LLM gateway: {e}")
         return None
 
+
 def save_to_docx(response_text):
-    """Save the API response to a DOCX file in a new folder."""
-    # Create Analysis_Reports folder if it doesn't exist
+    """Convert markdown response to DOCX using Pandoc."""
     os.makedirs(ANALYSIS_DIR, exist_ok=True)
-    
-    doc = Document()
-    doc.add_heading("Final Report", 0)
-    doc.add_paragraph(response_text)
-    
+
     try:
-        doc.save(DOCX_OUTPUT_PATH)
-        print(f"Analysis saved to {DOCX_OUTPUT_PATH}")
+        # Convert markdown to .docx
+        pypandoc.convert_text(
+            response_text,
+            to='docx',
+            format='md',
+            outputfile=DOCX_OUTPUT_PATH
+        )
+        print(f"✅ Analysis saved to {DOCX_OUTPUT_PATH}")
     except Exception as e:
-        print(f"Error saving DOCX file: {e}")
+        print(f"❌ Error saving DOCX file using Pandoc: {e}")
 
 def main():
     # Step 1: Run the shell script
@@ -171,7 +253,7 @@ def main():
     
     # Step 3: Call QBurst LLM gateway
     response = call_gpt4o(data)
-    print(response)
+    #print(response)
     if not response:
         sys.exit(1)
     

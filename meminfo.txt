@@ -1,0 +1,277 @@
+📄 Memory Metrics for com.application.zomato (Device: b356dc0d)
+
+
+===== launch the application (2025-09-23 11:32:12) =====
+Applications Memory Usage (in Kilobytes):
+Uptime: 588361222 Realtime: 940031461
+
+** MEMINFO in pid 8656 [com.application.zomato] **
+                   Pss  Private  Private  SwapPss      Rss     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty    Total     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------   ------
+  Native Heap   170071   169968       48       32   171160   208384   187440    20943
+  Dalvik Heap    36915    36812       16       90    37772    54729    30153    24576
+ Dalvik Other     7370     7044        0        1     7936                           
+        Stack     7976     7976        0        0     7988                           
+       Ashmem      348      188        0        0      896                           
+      Gfx dev     2976     2976        0        0     2980                           
+    Other dev      845      668      156        0     1336                           
+     .so mmap     7096      380     2736        6    36356                           
+    .jar mmap     6177        8     3016        0    33704                           
+    .apk mmap    79673     1156    57016        0   137332                           
+    .ttf mmap      126        0       60        0      320                           
+    .dex mmap    14391      144    12840        0    17496                           
+    .oat mmap     1069        0      260        0    14508                           
+    .art mmap    13812    12424      548      136    29048                           
+   Other mmap     2805        8     2268        0     4692                           
+   EGL mtrack    41104    41104        0        0    41104                           
+    GL mtrack    97756    97756        0        0    97756                           
+      Unknown     9886     8300     1556        2    10256                           
+        TOTAL   500663   386912    80520      267   652640   263113   217593    45519
+ 
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:    49784                          66820
+         Native Heap:   169968                         171160
+                Code:    77616                         240376
+               Stack:     7976                           7988
+            Graphics:   141836                         141840
+       Private Other:    20252
+              System:    33231
+             Unknown:                                   24456
+ 
+           TOTAL PSS:   500663            TOTAL RSS:   652640       TOTAL SWAP PSS:      267
+ 
+ Objects
+               Views:     1556         ViewRootImpl:        2
+         AppContexts:       31           Activities:        2
+              Assets:       53        AssetManagers:        0
+       Local Binders:      173        Proxy Binders:       97
+       Parcel memory:      162         Parcel count:      417
+    Death Recipients:       15      OpenSSL Sockets:       12
+            WebViews:        2
+ 
+ SQL
+         MEMORY_USED:     2906
+  PAGECACHE_OVERFLOW:     1017          MALLOC_SIZE:       46
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b)          cache  Dbname
+         4       40             39         3/28/4  /data/user/0/com.application.zomato/databases/ZLocationDB
+         4        8                         0/0/0    (attached) temp
+         4       40             46         3/22/4  /data/user/0/com.application.zomato/databases/ZLocationDB (1)
+         4      104            118     153/141/25  /data/user/0/com.application.zomato/no_backup/androidx.work.workdb
+         4        8                         0/0/0    (attached) temp
+         4      104            102        11/27/8  /data/user/0/com.application.zomato/no_backup/androidx.work.workdb (1)
+         4       24             39        15/44/4  /data/user/0/com.application.zomato/databases/SSIDLOCATIONDB
+         4        8                         0/0/0    (attached) temp
+         4       24             48         6/23/5  /data/user/0/com.application.zomato/databases/SSIDLOCATIONDB (1)
+         4       20             17         0/21/1  /data/user/0/com.application.zomato/databases/SavedCartDB
+         4        8                         0/0/0    (attached) temp
+         4       20             68        25/22/4  /data/user/0/com.application.zomato/databases/SavedCartDB (1)
+         4       24             17         0/21/1  /data/user/0/com.application.zomato/databases/aerobar_db
+         4        8                         0/0/0    (attached) temp
+         4       24             46         3/22/4  /data/user/0/com.application.zomato/databases/aerobar_db (1)
+         4       20             43         4/18/3  /data/user/0/com.application.zomato/databases/mqttAndroidService.db
+         4       24             13         4/39/1  /data/user/0/com.application.zomato/databases/UPLOADDB
+         4        8                         0/0/0    (attached) temp
+         4       24             24         3/22/1  /data/user/0/com.application.zomato/databases/UPLOADDB (1)
+         4       56            120       55/62/16  /data/user/0/com.application.zomato/databases/com.google.android.datatransport.events
+         4       64            124      162/44/21  /data/user/0/com.application.zomato/databases/clevertap
+         4       20             43         4/18/3  /data/user/0/com.application.zomato/databases/mqttAndroidService.db
+         4       20            119    1404/682/25  /data/user/0/com.application.zomato/databases/jumbo
+         4       24             21         1/30/2  /data/user/0/com.application.zomato/databases/VernacStringsDb
+         4        8                         0/0/0    (attached) temp
+         4       24             42         3/22/4  /data/user/0/com.application.zomato/databases/VernacStringsDb (1)
+         4       64             17         0/21/1  /data/user/0/com.application.zomato/databases/HomeDataDb
+         4        8                         0/0/0    (attached) temp
+         4       64             40         3/22/4  /data/user/0/com.application.zomato/databases/HomeDataDb (1)
+         4       92             51        12/22/5  /data/user/0/com.application.zomato/databases/exoplayer_internal.db
+         4       24             17         0/21/1  /data/user/0/com.application.zomato/databases/loaderMessages.db
+         4        8                         0/0/0    (attached) temp
+         4       24             50        16/23/5  /data/user/0/com.application.zomato/databases/loaderMessages.db (1)
+
+
+===== add to cart (2025-09-23 11:32:52) =====
+Applications Memory Usage (in Kilobytes):
+Uptime: 588410683 Realtime: 940080922
+
+** MEMINFO in pid 8656 [com.application.zomato] **
+                   Pss  Private  Private  SwapPss      Rss     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty    Total     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------   ------
+  Native Heap   282228   282092       64    13901   283368   336896   297210    39685
+  Dalvik Heap    66797    61852     4816     1152    67748    80985    56409    24576
+ Dalvik Other    10625     9680       44      125    11756                           
+        Stack     6844     6840        4     1808     6856                           
+       Ashmem      428      188        0        0     1100                           
+      Gfx dev     3796     3796        0        0     3800                           
+    Other dev      968      776      172        0     1456                           
+     .so mmap    20625      408    15852       44    51012                           
+    .jar mmap     5585        8     2300        0    33428                           
+    .apk mmap    93223     1204    69748       28   155652                           
+    .ttf mmap      181        0      104        0      428                           
+    .dex mmap    17237      140    14288        4    22808                           
+    .oat mmap     1010        0      200        0    14432                           
+    .art mmap    13733    10160     2540     2407    29356                           
+   Other mmap     1131        8      632        0     3084                           
+   EGL mtrack    61072    61072        0        0    61072                           
+    GL mtrack    94096    94096        0        0    94096                           
+      Unknown    10213     8440     1744      153    10588                           
+        TOTAL   709414   540760   112508    19622   852040   417881   353619    64261
+ 
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:    74552                          97104
+         Native Heap:   282092                         283368
+                Code:   104264                         279576
+               Stack:     6840                           6856
+            Graphics:   158964                         158968
+       Private Other:    26556
+              System:    56146
+             Unknown:                                   26168
+ 
+           TOTAL PSS:   709414            TOTAL RSS:   852040       TOTAL SWAP PSS:    19622
+ 
+ Objects
+               Views:     4682         ViewRootImpl:        3
+         AppContexts:       35           Activities:        2
+              Assets:       53        AssetManagers:        0
+       Local Binders:      165        Proxy Binders:       97
+       Parcel memory:      104         Parcel count:      251
+    Death Recipients:       13      OpenSSL Sockets:       11
+            WebViews:        1
+ 
+ SQL
+         MEMORY_USED:     2883
+  PAGECACHE_OVERFLOW:      996          MALLOC_SIZE:       46
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b)          cache  Dbname
+         4       40             39         3/33/4  /data/user/0/com.application.zomato/databases/ZLocationDB
+         4        8                         0/0/0    (attached) temp
+         4       40             46         3/25/4  /data/user/0/com.application.zomato/databases/ZLocationDB (1)
+         4      104            104     207/185/25  /data/user/0/com.application.zomato/no_backup/androidx.work.workdb
+         4        8                         0/0/0    (attached) temp
+         4      104            102        13/30/8  /data/user/0/com.application.zomato/no_backup/androidx.work.workdb (1)
+         4       24             39        15/49/4  /data/user/0/com.application.zomato/databases/SSIDLOCATIONDB
+         4        8                         0/0/0    (attached) temp
+         4       24             48         6/26/5  /data/user/0/com.application.zomato/databases/SSIDLOCATIONDB (1)
+         4       20             17         0/26/1  /data/user/0/com.application.zomato/databases/SavedCartDB
+         4        8                         0/0/0    (attached) temp
+         4       20            107        44/26/5  /data/user/0/com.application.zomato/databases/SavedCartDB (1)
+         4       24             17         0/26/1  /data/user/0/com.application.zomato/databases/aerobar_db
+         4        8                         0/0/0    (attached) temp
+         4       24             46         3/25/4  /data/user/0/com.application.zomato/databases/aerobar_db (1)
+         4       20             43         4/21/3  /data/user/0/com.application.zomato/databases/mqttAndroidService.db
+         4       24             13         4/44/1  /data/user/0/com.application.zomato/databases/UPLOADDB
+         4        8                         0/0/0    (attached) temp
+         4       24             24         3/25/1  /data/user/0/com.application.zomato/databases/UPLOADDB (1)
+         4       56            120       55/65/16  /data/user/0/com.application.zomato/databases/com.google.android.datatransport.events
+         4       64            124      202/47/21  /data/user/0/com.application.zomato/databases/clevertap
+         4       20             61         9/24/6  /data/user/0/com.application.zomato/databases/mqttAndroidService.db
+         4       20            117   2885/1204/25  /data/user/0/com.application.zomato/databases/jumbo
+         4       24             21         1/35/2  /data/user/0/com.application.zomato/databases/VernacStringsDb
+         4        8                         0/0/0    (attached) temp
+         4       24             42         3/25/4  /data/user/0/com.application.zomato/databases/VernacStringsDb (1)
+         4       64             17         0/26/1  /data/user/0/com.application.zomato/databases/HomeDataDb
+         4        8                         0/0/0    (attached) temp
+         4       64             40         3/25/4  /data/user/0/com.application.zomato/databases/HomeDataDb (1)
+         4       92             66        34/29/7  /data/user/0/com.application.zomato/databases/exoplayer_internal.db
+         4       24             17         0/26/1  /data/user/0/com.application.zomato/databases/loaderMessages.db
+         4        8                         0/0/0    (attached) temp
+         4       24             50        18/26/5  /data/user/0/com.application.zomato/databases/loaderMessages.db (1)
+
+
+===== place order (2025-09-23 11:34:09) =====
+Applications Memory Usage (in Kilobytes):
+Uptime: 588486903 Realtime: 940157142
+
+** MEMINFO in pid 8656 [com.application.zomato] **
+                   Pss  Private  Private  SwapPss      Rss     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty    Total     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------   ------
+  Native Heap    81356    80912      372   208165    82532   331264   287399    43864
+  Dalvik Heap    68861    63912     4812     5072    69792    82304    57728    24576
+ Dalvik Other    10989    10036       56      177    12116                           
+        Stack     4156     4128       28     3056     4168                           
+       Ashmem      109        0        0        0      644                           
+      Gfx dev     4480     4480        0        0     4484                           
+    Other dev      549      516       16        0     1036                           
+     .so mmap    15170      260    10428      188    46944                           
+    .jar mmap     3428        8     1084        0    30132                           
+    .apk mmap    76414      248    55732      984   143408                           
+    .ttf mmap       55        0       28        0      180                           
+    .dex mmap    12379      124     9776       20    19380                           
+    .oat mmap      728        0       40        0    14092                           
+    .art mmap    14053    10688     2324     1867    29772                           
+   Other mmap      914        8      440        0     2988                           
+   EGL mtrack   100260   100260        0        0   100260                           
+    GL mtrack     7460     7460        0        0     7460                           
+      Unknown     5832     4924      876     2661     6228                           
+        TOTAL   629383   287964    86012   222190   575616   413568   345127    68440
+ 
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:    76924                          99564
+         Native Heap:    80912                          82532
+                Code:    77740                         255944
+               Stack:     4128                           4168
+            Graphics:   112200                         112204
+       Private Other:    22072
+              System:   255407
+             Unknown:                                   21204
+ 
+           TOTAL PSS:   629383            TOTAL RSS:   575616       TOTAL SWAP PSS:   222190
+ 
+ Objects
+               Views:     4809         ViewRootImpl:        5
+         AppContexts:       37           Activities:        4
+              Assets:       53        AssetManagers:        0
+       Local Binders:      139        Proxy Binders:      106
+       Parcel memory:      195         Parcel count:      262
+    Death Recipients:       15      OpenSSL Sockets:       11
+            WebViews:        1
+ 
+ SQL
+         MEMORY_USED:     2963
+  PAGECACHE_OVERFLOW:     1070          MALLOC_SIZE:       46
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b)          cache  Dbname
+         4       40             39         3/38/4  /data/user/0/com.application.zomato/databases/ZLocationDB
+         4        8                         0/0/0    (attached) temp
+         4       40             46         3/28/4  /data/user/0/com.application.zomato/databases/ZLocationDB (1)
+         4      104            104     229/198/25  /data/user/0/com.application.zomato/no_backup/androidx.work.workdb
+         4        8                         0/0/0    (attached) temp
+         4      104            102        13/33/8  /data/user/0/com.application.zomato/no_backup/androidx.work.workdb (1)
+         4       24             39        15/54/4  /data/user/0/com.application.zomato/databases/SSIDLOCATIONDB
+         4        8                         0/0/0    (attached) temp
+         4       24             48         6/29/5  /data/user/0/com.application.zomato/databases/SSIDLOCATIONDB (1)
+         4       28             39        13/50/4  /data/user/0/com.application.zomato/databases/SavedCartDB
+         4        8                         0/0/0    (attached) temp
+         4       28            107        54/29/5  /data/user/0/com.application.zomato/databases/SavedCartDB (1)
+         4       24             17         0/31/1  /data/user/0/com.application.zomato/databases/aerobar_db
+         4        8                         0/0/0    (attached) temp
+         4       24             46         3/28/4  /data/user/0/com.application.zomato/databases/aerobar_db (1)
+         4       20             43         4/24/3  /data/user/0/com.application.zomato/databases/mqttAndroidService.db
+         4       24             13         4/49/1  /data/user/0/com.application.zomato/databases/UPLOADDB
+         4        8                         0/0/0    (attached) temp
+         4       24             24         3/28/1  /data/user/0/com.application.zomato/databases/UPLOADDB (1)
+         4       56            120       55/68/16  /data/user/0/com.application.zomato/databases/com.google.android.datatransport.events
+         4       64            124      202/50/21  /data/user/0/com.application.zomato/databases/clevertap
+         4       20             61        17/27/6  /data/user/0/com.application.zomato/databases/mqttAndroidService.db
+         4       68            118   3548/1370/25  /data/user/0/com.application.zomato/databases/jumbo
+         4       24             21         1/40/2  /data/user/0/com.application.zomato/databases/VernacStringsDb
+         4        8                         0/0/0    (attached) temp
+         4       24             42         3/28/4  /data/user/0/com.application.zomato/databases/VernacStringsDb (1)
+         4       64             17         0/31/1  /data/user/0/com.application.zomato/databases/HomeDataDb
+         4        8                         0/0/0    (attached) temp
+         4       64             40         3/28/4  /data/user/0/com.application.zomato/databases/HomeDataDb (1)
+         4       92             66        34/32/7  /data/user/0/com.application.zomato/databases/exoplayer_internal.db
+         4       24             17         0/31/1  /data/user/0/com.application.zomato/databases/loaderMessages.db
+         4        8                         0/0/0    (attached) temp
+         4       24             50        18/29/5  /data/user/0/com.application.zomato/databases/loaderMessages.db (1)

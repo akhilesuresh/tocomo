@@ -1,0 +1,7 @@
+venv/
+.venv/
+Analysis_Reports
+LLM_API_KEY.env
+APIkey.env
+.idea/
+__pycache__/

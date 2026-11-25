@@ -49,12 +49,16 @@ while true; do
     fi
 done
 
+OUTPUT_PATHS_FILE="$OUTPUT_DIR/output_path.txt"
+echo "OUTPUT_DIR:$OUTPUT_DIR" > "$OUTPUT_PATHS_FILE"
+
 # Function to capture and save gfxinfo, meminfo, cpuinfo, diskstats, batterystats, and FPS
 capture_metrics() {
     SCREEN_NAME="$1"
     echo "---- Capturing metrics for $SCREEN_NAME ----"
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
     OUTPUT_FILE="$OUTPUT_DIR/${SCREEN_NAME}_performance.txt"
+    echo "OUTPUT_FILE:$OUTPUT_FILE" >> "$OUTPUT_PATHS_FILE"
 
     # Write timestamp and device ID
     {

@@ -1,0 +1,16 @@
+```
+meminfo,transaction=launch_the_application,submetric=App_Summary java_heap_pss_kb=49784,native_heap_pss_kb=169968,code_pss_kb=77616,stack_pss_kb=7976,graphics_pss_kb=141836,private_other_pss_kb=20252,system_pss_kb=33231,total_pss_kb=500663,total_rss_kb=652640,total_swap_pss_kb=267 1758700332
+meminfo,transaction=launch_the_application,submetric=Objects views=1556,appcontexts=31,activities=2,assets=53,local_binders=173,proxy_binders=97,parcel_memory_kb=162,parcel_count=417,death_recipients=15,openssl_sockets=12,webviews=2 1758700332
+meminfo,transaction=launch_the_application,submetric=SQL memory_used=2906,pagecache_overflow=1017,malloc_size=46 1758700332
+meminfo,transaction=launch_the_application,submetric=DATABASES db_count=12 1758700332
+
+meminfo,transaction=add_to_cart,submetric=App_Summary java_heap_pss_kb=74552,native_heap_pss_kb=282092,code_pss_kb=104264,stack_pss_kb=6840,graphics_pss_kb=158964,private_other_pss_kb=26556,system_pss_kb=56146,total_pss_kb=709414,total_rss_kb=852040,total_swap_pss_kb=19622 1758700372
+meminfo,transaction=add_to_cart,submetric=Objects views=4682,appcontexts=35,activities=2,assets=53,local_binders=165,proxy_binders=97,parcel_memory_kb=104,parcel_count=251,death_recipients=13,openssl_sockets=11,webviews=1 1758700372
+meminfo,transaction=add_to_cart,submetric=SQL memory_used=2883,pagecache_overflow=996,malloc_size=46 1758700372
+meminfo,transaction=add_to_cart,submetric=DATABASES db_count=12 1758700372
+
+meminfo,transaction=place_order,submetric=App_Summary java_heap_pss_kb=76924,native_heap_pss_kb=80912,code_pss_kb=77740,stack_pss_kb=4128,graphics_pss_kb=112200,private_other_pss_kb=22072,system_pss_kb=255407,total_pss_kb=629383,total_rss_kb=575616,total_swap_pss_kb=222190 1758700449
+meminfo,transaction=place_order,submetric=Objects views=4809,appcontexts=37,activities=4,assets=53,local_binders=139,proxy_binders=106,parcel_memory_kb=195,parcel_count=262,death_recipients=15,openssl_sockets=11,webviews=1 1758700449
+meminfo,transaction=place_order,submetric=SQL memory_used=2963,pagecache_overflow=1070,malloc_size=46 1758700449
+meminfo,transaction=place_order,submetric=DATABASES db_count=12 1758700449
+```

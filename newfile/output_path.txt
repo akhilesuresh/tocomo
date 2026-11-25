@@ -1,2 +1,3 @@
 OUTPUT_DIR:/home/astin/Desktop/Projects/Performance metrics/newfile
-OUTPUT_FILE:/home/astin/Desktop/Projects/Performance metrics/newfile/tut1_performance.txt
+OUTPUT_FILE:/home/astin/Desktop/Projects/Performance metrics/newfile/menu_performance.txt
+OUTPUT_FILE:/home/astin/Desktop/Projects/Performance metrics/newfile/dining_performance.txt
